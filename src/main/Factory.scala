@@ -21,7 +21,7 @@ case class King(x: Int, y: Int) extends Piece {
 
   override def isAttacking(p: Piece): Boolean = (p.x == x && p.y == y + 1) || (p.x == x + 1 && p.y == y + 1) ||
     (p.x == x + 1 && p.y == y) || (p.x == x + 1 && p.y == y - 1) || (p.x == x && p.y == y - 1) || (p.x == x - 1 && p.y == y - 1) ||
-    (p.x == x - 1 || p.y == y) || (p.x == x - 1 && p.y == y + 1)
+    (p.x == x - 1 && p.y == y) || (p.x == x - 1 && p.y == y + 1)
 
   override def toString: String = "K"
 
