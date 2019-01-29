@@ -1,5 +1,5 @@
 package main
 
-class App (width: Int, height: Int, pieces: List[(Int, Int) => Piece]) {
+class App1 (width: Int, height: Int, pieces: List[(Int, Int) => Piece]) {
 
 }

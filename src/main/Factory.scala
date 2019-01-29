@@ -31,7 +31,7 @@ case class Knight(x: Int, y: Int) extends Piece {
 
   override def isAttacking(p: Piece): Boolean = (p.x == x + 1 && p.y == y + 2) || (p.x == x + 2 && p.y == y + 1) ||
     (p.x == x + 2 && p.y == y - 1) || (p.x == x + 1 && p.y == y - 2) || (p.x == x - 1 && p.y == y - 2) || (p.x == x - 2 && p.y == y - 1) ||
-    (p.x == x - 2 || p.y == y + 1) || (p.x == x - 1 && p.y == y + 2)
+    (p.x == x - 2 && p.y == y + 1) || (p.x == x - 1 && p.y == y + 2)
 
   override def toString: String = "N"
 
