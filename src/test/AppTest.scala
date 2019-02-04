@@ -34,4 +34,18 @@ object AppTest extends App {
   println()
 
 
+  val test2 = new App1(width = 4, height = 3, List())
+
+  val arrangeTest1 = test2.setPieces(List(Queen, Queen, Queen))
+
+  val boards1: Set[List[Piece]] = arrangeTest1
+
+  println(boards1.size)
+  println()
+
+  val test3 = new App1(width = 4, height = 4, List(Queen, Rook, Rook))
+  println(test3.setOfResult.size)
+  test3.show()
+
+
 }
