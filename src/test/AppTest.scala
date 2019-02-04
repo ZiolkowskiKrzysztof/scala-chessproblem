@@ -43,9 +43,14 @@ object AppTest extends App {
   println(boards1.size)
   println()
 
-  val test3 = new App1(width = 4, height = 4, List(Queen, Rook, Rook))
+  val test3 = new App1(width = 3, height = 3, List(Queen, Queen))
   println(test3.setOfResult.size)
   test3.show()
+
+  val test4 = new App1(width = 3, height = 3, List(Rook, Rook, Rook))
+  println(test4.setOfResult.size)
+  test4.show()
+
 
 
 }

@@ -24,7 +24,7 @@ class App1 (width: Int, height: Int, pieces: List[(Int, Int) => Piece]){
       h <- 1 to height
       piece = arrange(head, w, h)
       if (isSafe(piece, pieces))
-    } yield (piece :: pieces)
+    } yield (piece :: pieces).sortBy(p => (p.x, p.y))
   }
 
   def printChess(pieces: List[Piece]): Unit = {
