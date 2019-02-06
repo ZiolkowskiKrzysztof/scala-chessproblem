@@ -2,10 +2,12 @@ package main
 
 class App1 (width: Int, height: Int, pieces: List[(Int, Int) => Piece]){
 
+  val startTime = System.nanoTime()
   val setOfResult = setPieces(pieces)
+  val duration = (System.nanoTime() - startTime) / 1e9d
 
-  def isCheck(p1: Piece, p2: Piece): Boolean = p1.isAttacking(p2) || p2.isAttacking(p1)
-  def isSafe(p: Piece, pieces: List[Piece]): Boolean = pieces forall(!isCheck(p, _))
+  def isCheck(p1: Piece, p2: Piece): Boolean = (p1.isAttacking(p2) || p2.isAttacking(p1))
+  def isSafe(p: Piece, pieces: List[Piece]): Boolean = pieces forall(!isCheck(_, p))
 
   def arrange(p: (Int, Int) => Piece, x: Int, y: Int): Piece = p match {
     case Bishop => Bishop(x, y)
@@ -40,8 +42,10 @@ class App1 (width: Int, height: Int, pieces: List[(Int, Int) => Piece]){
     println()
   }
 
+
   def show(): Unit = {
     val result = setOfResult.size
+    println("Number of results: " + result + ". Time: " + duration + "s.")
     setOfResult.take(10).map(printChess(_))
   }
 

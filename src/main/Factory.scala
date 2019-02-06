@@ -11,7 +11,7 @@ trait Piece {
 
 case class Bishop(x: Int, y: Int) extends Piece {
 
-  override def isAttacking(p: Piece): Boolean = math.abs(p.x - x) == math.abs(p.y - y)
+  override def isAttacking(p: Piece): Boolean = (p.x == x && p.y == y) || (math.abs(p.x - x) == math.abs(p.y - y))
 
   override def toString: String = "B"
 
@@ -19,9 +19,9 @@ case class Bishop(x: Int, y: Int) extends Piece {
 
 case class King(x: Int, y: Int) extends Piece {
 
-  override def isAttacking(p: Piece): Boolean = (p.x == x && p.y == y + 1) || (p.x == x + 1 && p.y == y + 1) ||
+  override def isAttacking(p: Piece): Boolean = (p.x == x && p.y == y) || ((p.x == x && p.y == y + 1) || (p.x == x + 1 && p.y == y + 1) ||
     (p.x == x + 1 && p.y == y) || (p.x == x + 1 && p.y == y - 1) || (p.x == x && p.y == y - 1) || (p.x == x - 1 && p.y == y - 1) ||
-    (p.x == x - 1 && p.y == y) || (p.x == x - 1 && p.y == y + 1)
+    (p.x == x - 1 && p.y == y) || (p.x == x - 1 && p.y == y + 1))
 
   override def toString: String = "K"
 
@@ -29,7 +29,7 @@ case class King(x: Int, y: Int) extends Piece {
 
 case class Knight(x: Int, y: Int) extends Piece {
 
-  override def isAttacking(p: Piece): Boolean = (p.x == x + 1 && p.y == y + 2) || (p.x == x + 2 && p.y == y + 1) ||
+  override def isAttacking(p: Piece): Boolean = (p.x == x && p.y == y) || (p.x == x + 1 && p.y == y + 2) || (p.x == x + 2 && p.y == y + 1) ||
     (p.x == x + 2 && p.y == y - 1) || (p.x == x + 1 && p.y == y - 2) || (p.x == x - 1 && p.y == y - 2) || (p.x == x - 2 && p.y == y - 1) ||
     (p.x == x - 2 && p.y == y + 1) || (p.x == x - 1 && p.y == y + 2)
 
@@ -39,7 +39,7 @@ case class Knight(x: Int, y: Int) extends Piece {
 
 case class Rook(x: Int, y: Int) extends Piece {
 
-  override def isAttacking(p: Piece): Boolean = p.x == x || p.y == y
+  override def isAttacking(p: Piece): Boolean = (p.x == x && p.y == y) || (p.x == x || p.y == y)
 
   override def toString: String = "R"
 
@@ -47,7 +47,7 @@ case class Rook(x: Int, y: Int) extends Piece {
 
 case class Queen(x: Int, y: Int) extends Piece {
 
-  override def isAttacking(p: Piece): Boolean = (math.abs(p.x - x) == math.abs(p.y - y)) || p.x == x || p.y == y
+  override def isAttacking(p: Piece): Boolean = (p.x == x && p.y == y) || (math.abs(p.x - x) == math.abs(p.y - y)) || p.x == x || p.y == y
 
   override def toString: String = "Q"
 

@@ -1,2 +1,5 @@
 .idea/
 ChessProblemInScala.iml
+out/production/ChessProblemInScala
+project
+target
