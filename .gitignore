@@ -1,5 +1,6 @@
 .idea/
 ChessProblemInScala.iml
-out/production/ChessProblemInScala
-project
-target
+out/production/ChessProblemInScala/
+project/
+target/
+42e36ZZ

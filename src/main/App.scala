@@ -9,7 +9,7 @@ class App1 (width: Int, height: Int, pieces: List[(Int, Int) => Piece]){
   def isCheck(p1: Piece, p2: Piece): Boolean = (p1.isAttacking(p2) || p2.isAttacking(p1))
   def isSafe(p: Piece, pieces: List[Piece]): Boolean = pieces forall(!isCheck(_, p))
 
-  def arrange(p: (Int, Int) => Piece, x: Int, y: Int): Piece = p match {
+  private def arrange(p: (Int, Int) => Piece, x: Int, y: Int): Piece = p match {
     case Bishop => Bishop(x, y)
     case King => King(x, y)
     case Knight => Knight(x, y)
@@ -18,7 +18,7 @@ class App1 (width: Int, height: Int, pieces: List[(Int, Int) => Piece]){
     case _ => throw new IllegalArgumentException("Incorrect name of the figure.")
   }
 
-  def setPieces(pieces: List[(Int, Int) => Piece]): Set[List[Piece]] = pieces match {
+  private def setPieces(pieces: List[(Int, Int) => Piece]): Set[List[Piece]] = pieces match {
     case Nil => Set(List())
     case head :: tail => for {
       pieces <- setPieces(tail)
